@@ -1,0 +1,2176 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>hlt.game_map API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#hlt.game_map.GameMap">GameMap</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#hlt.game_map.GameMap.__init__">__init__</a></li>
+    <li class="mono"><a href="#hlt.game_map.GameMap.calculate_distance">calculate_distance</a></li>
+    <li class="mono"><a href="#hlt.game_map.GameMap.get_unsafe_moves">get_unsafe_moves</a></li>
+    <li class="mono"><a href="#hlt.game_map.GameMap.naive_navigate">naive_navigate</a></li>
+    <li class="mono"><a href="#hlt.game_map.GameMap.normalize">normalize</a></li>
+  </ul>
+
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#hlt.game_map.MapCell">MapCell</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#hlt.game_map.MapCell.__init__">__init__</a></li>
+    <li class="mono"><a href="#hlt.game_map.MapCell.mark_unsafe">mark_unsafe</a></li>
+  </ul>
+
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#hlt.game_map.Player">Player</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#hlt.game_map.Player.__init__">__init__</a></li>
+    <li class="mono"><a href="#hlt.game_map.Player.get_dropoff">get_dropoff</a></li>
+    <li class="mono"><a href="#hlt.game_map.Player.get_dropoffs">get_dropoffs</a></li>
+    <li class="mono"><a href="#hlt.game_map.Player.get_ship">get_ship</a></li>
+    <li class="mono"><a href="#hlt.game_map.Player.get_ships">get_ships</a></li>
+    <li class="mono"><a href="#hlt.game_map.Player.has_ship">has_ship</a></li>
+  </ul>
+
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">hlt.game_map</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map" class="source">
+    <pre><code>import queue
+
+from . import constants
+from .entity import Entity, Shipyard, Ship, Dropoff
+from .positionals import Direction, Position
+from .common import read_input
+
+
+class Player:
+    """
+    Player object containing all items/metadata pertinent to the player.
+    """
+    def __init__(self, player_id, shipyard, halite=0):
+        self.id = player_id
+        self.shipyard = shipyard
+        self.halite_amount = halite
+        self._ships = {}
+        self._dropoffs = {}
+
+    def get_ship(self, ship_id):
+        """
+        Returns a singular ship mapped by the ship id
+        :param ship_id: The ship id of the ship you wish to return
+        :return: the ship object.
+        """
+        return self._ships[ship_id]
+
+    def get_ships(self):
+        """
+        :return: Returns all ship objects in a list
+        """
+        return list(self._ships.values())
+
+    def get_dropoff(self, dropoff_id):
+        """
+        Returns a singular dropoff mapped by its id
+        :param dropoff_id: The dropoff id to return
+        :return: The dropoff object
+        """
+        return self._dropoffs[dropoff_id]
+
+    def get_dropoffs(self):
+        """
+        :return: Returns all dropoff objects in a list
+        """
+        return list(self._dropoffs.values())
+
+    def has_ship(self, ship_id):
+        """
+        Check whether the player has a ship with a given ID.
+
+        Useful if you track ships via IDs elsewhere and want to make
+        sure the ship still exists.
+
+        :param ship_id: The ID to check.
+        :return: True if and only if the ship exists.
+        """
+        return ship_id in self._ships
+
+
+    @staticmethod
+    def _generate():
+        """
+        Creates a player object from the input given by the game engine
+        :return: The player object
+        """
+        player, shipyard_x, shipyard_y = map(int, read_input().split())
+        return Player(player, Shipyard(player, -1, Position(shipyard_x, shipyard_y)))
+
+    def _update(self, num_ships, num_dropoffs, halite):
+        """
+        Updates this player object considering the input from the game engine for the current specific turn.
+        :param num_ships: The number of ships this player has this turn
+        :param num_dropoffs: The number of dropoffs this player has this turn
+        :param halite: How much halite the player has in total
+        :return: nothing.
+        """
+        self.halite_amount = halite
+        self._ships = {id: ship for (id, ship) in [Ship._generate(self.id) for _ in range(num_ships)]}
+        self._dropoffs = {id: dropoff for (id, dropoff) in [Dropoff._generate(self.id) for _ in range(num_dropoffs)]}
+
+
+class MapCell:
+    """A cell on the game map."""
+    def __init__(self, position, halite_amount):
+        self.position = position
+        self.halite_amount = halite_amount
+        self.ship = None
+        self.structure = None
+
+    @property
+    def is_empty(self):
+        """
+        :return: Whether this cell has no ships or structures
+        """
+        return self.ship is None and self.structure is None
+
+    @property
+    def is_occupied(self):
+        """
+        :return: Whether this cell has any ships
+        """
+        return self.ship is not None
+
+    @property
+    def has_structure(self):
+        """
+        :return: Whether this cell has any structures
+        """
+        return self.structure is not None
+
+    @property
+    def structure_type(self):
+        """
+        :return: What is the structure type in this cell
+        """
+        return None if not self.structure else type(self.structure)
+
+    def mark_unsafe(self, ship):
+        """
+        Mark this cell as unsafe (occupied) for navigation.
+
+        Use in conjunction with GameMap.naive_navigate.
+        """
+        self.ship = ship
+
+    def __eq__(self, other):
+        return self.position == other.position
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return 'MapCell({}, halite={})'.format(self.position, self.halite_amount)
+
+
+class GameMap:
+    """
+    The game map.
+
+    Can be indexed by a position, or by a contained entity.
+    Coordinates start at 0. Coordinates are normalized for you
+    """
+    def __init__(self, cells, width, height):
+        self.width = width
+        self.height = height
+        self._cells = cells
+
+    def __getitem__(self, location):
+        """
+        Getter for position object or entity objects within the game map
+        :param location: the position or entity to access in this map
+        :return: the contents housing that cell or entity
+        """
+        if isinstance(location, Position):
+            location = self.normalize(location)
+            return self._cells[location.y][location.x]
+        elif isinstance(location, Entity):
+            return self._cells[location.position.y][location.position.x]
+        return None
+
+    def calculate_distance(self, source, target):
+        """
+        Compute the Manhattan distance between two locations.
+        Accounts for wrap-around.
+        :param source: The source from where to calculate
+        :param target: The target to where calculate
+        :return: The distance between these items
+        """
+        source = self.normalize(source)
+        target = self.normalize(target)
+        resulting_position = abs(source - target)
+        return min(resulting_position.x, self.width - resulting_position.x) + \
+            min(resulting_position.y, self.height - resulting_position.y)
+
+    def normalize(self, position):
+        """
+        Normalized the position within the bounds of the toroidal map.
+        i.e.: Takes a point which may or may not be within width and
+        height bounds, and places it within those bounds considering
+        wraparound.
+        :param position: A position object.
+        :return: A normalized position object fitting within the bounds of the map
+        """
+        return Position(position.x % self.width, position.y % self.height)
+
+    @staticmethod
+    def _get_target_direction(source, target):
+        """
+        Returns where in the cardinality spectrum the target is from source. e.g.: North, East; South, West; etc.
+        NOTE: Ignores toroid
+        :param source: The source position
+        :param target: The target position
+        :return: A tuple containing the target Direction. A tuple item (or both) could be None if within same coords
+        """
+        return (Direction.South if target.y > source.y else Direction.North if target.y < source.y else None,
+                Direction.East if target.x > source.x else Direction.West if target.x < source.x else None)
+
+    def get_unsafe_moves(self, source, destination):
+        """
+        Return the Direction(s) to move closer to the target point, or empty if the points are the same.
+        This move mechanic does not account for collisions. The multiple directions are if both directional movements
+        are viable.
+        :param source: The starting position
+        :param destination: The destination towards which you wish to move your object.
+        :return: A list of valid (closest) Directions towards your target.
+        """
+        source = self.normalize(source)
+        destination = self.normalize(destination)
+        possible_moves = []
+        distance = abs(destination - source)
+        y_cardinality, x_cardinality = self._get_target_direction(source, destination)
+
+        if distance.x != 0:
+            possible_moves.append(x_cardinality if distance.x < (self.width / 2)
+                                  else Direction.invert(x_cardinality))
+        if distance.y != 0:
+            possible_moves.append(y_cardinality if distance.y < (self.height / 2)
+                                  else Direction.invert(y_cardinality))
+        return possible_moves
+
+    def naive_navigate(self, ship, destination):
+        """
+        Returns a singular safe move towards the destination.
+
+        :param ship: The ship to move.
+        :param destination: Ending position
+        :return: A direction.
+        """
+        # No need to normalize destination, since get_unsafe_moves
+        # does that
+        for direction in self.get_unsafe_moves(ship.position, destination):
+            target_pos = ship.position.directional_offset(direction)
+            #if not self[target_pos].is_occupied:
+                #self[target_pos].mark_unsafe(ship)
+            return direction
+
+        #return Direction.Still
+
+    @staticmethod
+    def _generate():
+        """
+        Creates a map object from the input given by the game engine
+        :return: The map object
+        """
+        map_width, map_height = map(int, read_input().split())
+        game_map = [[None for _ in range(map_width)] for _ in range(map_height)]
+        for y_position in range(map_height):
+            cells = read_input().split()
+            for x_position in range(map_width):
+                game_map[y_position][x_position] = MapCell(Position(x_position, y_position),
+                                                           int(cells[x_position]))
+        return GameMap(game_map, map_width, map_height)
+
+    def _update(self):
+        """
+        Updates this map object from the input given by the game engine
+        :return: nothing
+        """
+        # Mark cells as safe for navigation (will re-mark unsafe cells
+        # later)
+        for y in range(self.height):
+            for x in range(self.width):
+                self[Position(x, y)].ship = None
+
+        for _ in range(int(read_input())):
+            cell_x, cell_y, cell_energy = map(int, read_input().split())
+            self[Position(cell_x, cell_y)].halite_amount = cell_energy
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="hlt.game_map.GameMap" class="name">class <span class="ident">GameMap</span></p>
+      
+  
+    <div class="desc"><p>The game map.</p>
+<p>Can be indexed by a position, or by a contained entity.
+Coordinates start at 0. Coordinates are normalized for you</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap" class="source">
+    <pre><code>class GameMap:
+    """
+    The game map.
+
+    Can be indexed by a position, or by a contained entity.
+    Coordinates start at 0. Coordinates are normalized for you
+    """
+    def __init__(self, cells, width, height):
+        self.width = width
+        self.height = height
+        self._cells = cells
+
+    def __getitem__(self, location):
+        """
+        Getter for position object or entity objects within the game map
+        :param location: the position or entity to access in this map
+        :return: the contents housing that cell or entity
+        """
+        if isinstance(location, Position):
+            location = self.normalize(location)
+            return self._cells[location.y][location.x]
+        elif isinstance(location, Entity):
+            return self._cells[location.position.y][location.position.x]
+        return None
+
+    def calculate_distance(self, source, target):
+        """
+        Compute the Manhattan distance between two locations.
+        Accounts for wrap-around.
+        :param source: The source from where to calculate
+        :param target: The target to where calculate
+        :return: The distance between these items
+        """
+        source = self.normalize(source)
+        target = self.normalize(target)
+        resulting_position = abs(source - target)
+        return min(resulting_position.x, self.width - resulting_position.x) + \
+            min(resulting_position.y, self.height - resulting_position.y)
+
+    def normalize(self, position):
+        """
+        Normalized the position within the bounds of the toroidal map.
+        i.e.: Takes a point which may or may not be within width and
+        height bounds, and places it within those bounds considering
+        wraparound.
+        :param position: A position object.
+        :return: A normalized position object fitting within the bounds of the map
+        """
+        return Position(position.x % self.width, position.y % self.height)
+
+    @staticmethod
+    def _get_target_direction(source, target):
+        """
+        Returns where in the cardinality spectrum the target is from source. e.g.: North, East; South, West; etc.
+        NOTE: Ignores toroid
+        :param source: The source position
+        :param target: The target position
+        :return: A tuple containing the target Direction. A tuple item (or both) could be None if within same coords
+        """
+        return (Direction.South if target.y > source.y else Direction.North if target.y < source.y else None,
+                Direction.East if target.x > source.x else Direction.West if target.x < source.x else None)
+
+    def get_unsafe_moves(self, source, destination):
+        """
+        Return the Direction(s) to move closer to the target point, or empty if the points are the same.
+        This move mechanic does not account for collisions. The multiple directions are if both directional movements
+        are viable.
+        :param source: The starting position
+        :param destination: The destination towards which you wish to move your object.
+        :return: A list of valid (closest) Directions towards your target.
+        """
+        source = self.normalize(source)
+        destination = self.normalize(destination)
+        possible_moves = []
+        distance = abs(destination - source)
+        y_cardinality, x_cardinality = self._get_target_direction(source, destination)
+
+        if distance.x != 0:
+            possible_moves.append(x_cardinality if distance.x < (self.width / 2)
+                                  else Direction.invert(x_cardinality))
+        if distance.y != 0:
+            possible_moves.append(y_cardinality if distance.y < (self.height / 2)
+                                  else Direction.invert(y_cardinality))
+        return possible_moves
+
+    def naive_navigate(self, ship, destination):
+        """
+        Returns a singular safe move towards the destination.
+
+        :param ship: The ship to move.
+        :param destination: Ending position
+        :return: A direction.
+        """
+        # No need to normalize destination, since get_unsafe_moves
+        # does that
+        for direction in self.get_unsafe_moves(ship.position, destination):
+            target_pos = ship.position.directional_offset(direction)
+            #if not self[target_pos].is_occupied:
+                #self[target_pos].mark_unsafe(ship)
+            return direction
+
+        #return Direction.Still
+
+    @staticmethod
+    def _generate():
+        """
+        Creates a map object from the input given by the game engine
+        :return: The map object
+        """
+        map_width, map_height = map(int, read_input().split())
+        game_map = [[None for _ in range(map_width)] for _ in range(map_height)]
+        for y_position in range(map_height):
+            cells = read_input().split()
+            for x_position in range(map_width):
+                game_map[y_position][x_position] = MapCell(Position(x_position, y_position),
+                                                           int(cells[x_position]))
+        return GameMap(game_map, map_width, map_height)
+
+    def _update(self):
+        """
+        Updates this map object from the input given by the game engine
+        :return: nothing
+        """
+        # Mark cells as safe for navigation (will re-mark unsafe cells
+        # later)
+        for y in range(self.height):
+            for x in range(self.width):
+                self[Position(x, y)].ship = None
+
+        for _ in range(int(read_input())):
+            cell_x, cell_y, cell_energy = map(int, read_input().split())
+            self[Position(cell_x, cell_y)].halite_amount = cell_energy
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#hlt.game_map.GameMap">GameMap</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.GameMap.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, cells, width, height)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap.__init__" class="source">
+    <pre><code>def __init__(self, cells, width, height):
+    self.width = width
+    self.height = height
+    self._cells = cells
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.GameMap.calculate_distance">
+    <p>def <span class="ident">calculate_distance</span>(</p><p>self, source, target)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Compute the Manhattan distance between two locations.
+Accounts for wrap-around.
+:param source: The source from where to calculate
+:param target: The target to where calculate
+:return: The distance between these items</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap.calculate_distance', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap.calculate_distance" class="source">
+    <pre><code>def calculate_distance(self, source, target):
+    """
+    Compute the Manhattan distance between two locations.
+    Accounts for wrap-around.
+    :param source: The source from where to calculate
+    :param target: The target to where calculate
+    :return: The distance between these items
+    """
+    source = self.normalize(source)
+    target = self.normalize(target)
+    resulting_position = abs(source - target)
+    return min(resulting_position.x, self.width - resulting_position.x) + \
+        min(resulting_position.y, self.height - resulting_position.y)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.GameMap.get_unsafe_moves">
+    <p>def <span class="ident">get_unsafe_moves</span>(</p><p>self, source, destination)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the Direction(s) to move closer to the target point, or empty if the points are the same.
+This move mechanic does not account for collisions. The multiple directions are if both directional movements
+are viable.
+:param source: The starting position
+:param destination: The destination towards which you wish to move your object.
+:return: A list of valid (closest) Directions towards your target.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap.get_unsafe_moves', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap.get_unsafe_moves" class="source">
+    <pre><code>def get_unsafe_moves(self, source, destination):
+    """
+    Return the Direction(s) to move closer to the target point, or empty if the points are the same.
+    This move mechanic does not account for collisions. The multiple directions are if both directional movements
+    are viable.
+    :param source: The starting position
+    :param destination: The destination towards which you wish to move your object.
+    :return: A list of valid (closest) Directions towards your target.
+    """
+    source = self.normalize(source)
+    destination = self.normalize(destination)
+    possible_moves = []
+    distance = abs(destination - source)
+    y_cardinality, x_cardinality = self._get_target_direction(source, destination)
+    if distance.x != 0:
+        possible_moves.append(x_cardinality if distance.x < (self.width / 2)
+                              else Direction.invert(x_cardinality))
+    if distance.y != 0:
+        possible_moves.append(y_cardinality if distance.y < (self.height / 2)
+                              else Direction.invert(y_cardinality))
+    return possible_moves
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.GameMap.naive_navigate">
+    <p>def <span class="ident">naive_navigate</span>(</p><p>self, ship, destination)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a singular safe move towards the destination.</p>
+<p>:param ship: The ship to move.
+:param destination: Ending position
+:return: A direction.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap.naive_navigate', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap.naive_navigate" class="source">
+    <pre><code>def naive_navigate(self, ship, destination):
+    """
+    Returns a singular safe move towards the destination.
+    :param ship: The ship to move.
+    :param destination: Ending position
+    :return: A direction.
+    """
+    # No need to normalize destination, since get_unsafe_moves
+    # does that
+    for direction in self.get_unsafe_moves(ship.position, destination):
+        target_pos = ship.position.directional_offset(direction)
+        #if not self[target_pos].is_occupied:
+            #self[target_pos].mark_unsafe(ship)
+        return direction
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.GameMap.normalize">
+    <p>def <span class="ident">normalize</span>(</p><p>self, position)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Normalized the position within the bounds of the toroidal map.
+i.e.: Takes a point which may or may not be within width and
+height bounds, and places it within those bounds considering
+wraparound.
+:param position: A position object.
+:return: A normalized position object fitting within the bounds of the map</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.GameMap.normalize', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.GameMap.normalize" class="source">
+    <pre><code>def normalize(self, position):
+    """
+    Normalized the position within the bounds of the toroidal map.
+    i.e.: Takes a point which may or may not be within width and
+    height bounds, and places it within those bounds considering
+    wraparound.
+    :param position: A position object.
+    :return: A normalized position object fitting within the bounds of the map
+    """
+    return Position(position.x % self.width, position.y % self.height)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="hlt.game_map.GameMap.height" class="name">var <span class="ident">height</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.GameMap.width" class="name">var <span class="ident">width</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="hlt.game_map.MapCell" class="name">class <span class="ident">MapCell</span></p>
+      
+  
+    <div class="desc"><p>A cell on the game map.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.MapCell', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.MapCell" class="source">
+    <pre><code>class MapCell:
+    """A cell on the game map."""
+    def __init__(self, position, halite_amount):
+        self.position = position
+        self.halite_amount = halite_amount
+        self.ship = None
+        self.structure = None
+
+    @property
+    def is_empty(self):
+        """
+        :return: Whether this cell has no ships or structures
+        """
+        return self.ship is None and self.structure is None
+
+    @property
+    def is_occupied(self):
+        """
+        :return: Whether this cell has any ships
+        """
+        return self.ship is not None
+
+    @property
+    def has_structure(self):
+        """
+        :return: Whether this cell has any structures
+        """
+        return self.structure is not None
+
+    @property
+    def structure_type(self):
+        """
+        :return: What is the structure type in this cell
+        """
+        return None if not self.structure else type(self.structure)
+
+    def mark_unsafe(self, ship):
+        """
+        Mark this cell as unsafe (occupied) for navigation.
+
+        Use in conjunction with GameMap.naive_navigate.
+        """
+        self.ship = ship
+
+    def __eq__(self, other):
+        return self.position == other.position
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return 'MapCell({}, halite={})'.format(self.position, self.halite_amount)
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#hlt.game_map.MapCell">MapCell</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.MapCell.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, position, halite_amount)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.MapCell.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.MapCell.__init__" class="source">
+    <pre><code>def __init__(self, position, halite_amount):
+    self.position = position
+    self.halite_amount = halite_amount
+    self.ship = None
+    self.structure = None
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.MapCell.mark_unsafe">
+    <p>def <span class="ident">mark_unsafe</span>(</p><p>self, ship)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Mark this cell as unsafe (occupied) for navigation.</p>
+<p>Use in conjunction with GameMap.naive_navigate.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.MapCell.mark_unsafe', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.MapCell.mark_unsafe" class="source">
+    <pre><code>def mark_unsafe(self, ship):
+    """
+    Mark this cell as unsafe (occupied) for navigation.
+    Use in conjunction with GameMap.naive_navigate.
+    """
+    self.ship = ship
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.halite_amount" class="name">var <span class="ident">halite_amount</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.has_structure" class="name">var <span class="ident">has_structure</span></p>
+            
+
+            
+  
+    <div class="desc"><p>:return: Whether this cell has any structures</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.is_empty" class="name">var <span class="ident">is_empty</span></p>
+            
+
+            
+  
+    <div class="desc"><p>:return: Whether this cell has no ships or structures</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.is_occupied" class="name">var <span class="ident">is_occupied</span></p>
+            
+
+            
+  
+    <div class="desc"><p>:return: Whether this cell has any ships</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.position" class="name">var <span class="ident">position</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.ship" class="name">var <span class="ident">ship</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.structure" class="name">var <span class="ident">structure</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.MapCell.structure_type" class="name">var <span class="ident">structure_type</span></p>
+            
+
+            
+  
+    <div class="desc"><p>:return: What is the structure type in this cell</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="hlt.game_map.Player" class="name">class <span class="ident">Player</span></p>
+      
+  
+    <div class="desc"><p>Player object containing all items/metadata pertinent to the player.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player" class="source">
+    <pre><code>class Player:
+    """
+    Player object containing all items/metadata pertinent to the player.
+    """
+    def __init__(self, player_id, shipyard, halite=0):
+        self.id = player_id
+        self.shipyard = shipyard
+        self.halite_amount = halite
+        self._ships = {}
+        self._dropoffs = {}
+
+    def get_ship(self, ship_id):
+        """
+        Returns a singular ship mapped by the ship id
+        :param ship_id: The ship id of the ship you wish to return
+        :return: the ship object.
+        """
+        return self._ships[ship_id]
+
+    def get_ships(self):
+        """
+        :return: Returns all ship objects in a list
+        """
+        return list(self._ships.values())
+
+    def get_dropoff(self, dropoff_id):
+        """
+        Returns a singular dropoff mapped by its id
+        :param dropoff_id: The dropoff id to return
+        :return: The dropoff object
+        """
+        return self._dropoffs[dropoff_id]
+
+    def get_dropoffs(self):
+        """
+        :return: Returns all dropoff objects in a list
+        """
+        return list(self._dropoffs.values())
+
+    def has_ship(self, ship_id):
+        """
+        Check whether the player has a ship with a given ID.
+
+        Useful if you track ships via IDs elsewhere and want to make
+        sure the ship still exists.
+
+        :param ship_id: The ID to check.
+        :return: True if and only if the ship exists.
+        """
+        return ship_id in self._ships
+
+
+    @staticmethod
+    def _generate():
+        """
+        Creates a player object from the input given by the game engine
+        :return: The player object
+        """
+        player, shipyard_x, shipyard_y = map(int, read_input().split())
+        return Player(player, Shipyard(player, -1, Position(shipyard_x, shipyard_y)))
+
+    def _update(self, num_ships, num_dropoffs, halite):
+        """
+        Updates this player object considering the input from the game engine for the current specific turn.
+        :param num_ships: The number of ships this player has this turn
+        :param num_dropoffs: The number of dropoffs this player has this turn
+        :param halite: How much halite the player has in total
+        :return: nothing.
+        """
+        self.halite_amount = halite
+        self._ships = {id: ship for (id, ship) in [Ship._generate(self.id) for _ in range(num_ships)]}
+        self._dropoffs = {id: dropoff for (id, dropoff) in [Dropoff._generate(self.id) for _ in range(num_dropoffs)]}
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#hlt.game_map.Player">Player</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, player_id, shipyard, halite=0)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.__init__" class="source">
+    <pre><code>def __init__(self, player_id, shipyard, halite=0):
+    self.id = player_id
+    self.shipyard = shipyard
+    self.halite_amount = halite
+    self._ships = {}
+    self._dropoffs = {}
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.get_dropoff">
+    <p>def <span class="ident">get_dropoff</span>(</p><p>self, dropoff_id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a singular dropoff mapped by its id
+:param dropoff_id: The dropoff id to return
+:return: The dropoff object</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.get_dropoff', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.get_dropoff" class="source">
+    <pre><code>def get_dropoff(self, dropoff_id):
+    """
+    Returns a singular dropoff mapped by its id
+    :param dropoff_id: The dropoff id to return
+    :return: The dropoff object
+    """
+    return self._dropoffs[dropoff_id]
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.get_dropoffs">
+    <p>def <span class="ident">get_dropoffs</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>:return: Returns all dropoff objects in a list</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.get_dropoffs', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.get_dropoffs" class="source">
+    <pre><code>def get_dropoffs(self):
+    """
+    :return: Returns all dropoff objects in a list
+    """
+    return list(self._dropoffs.values())
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.get_ship">
+    <p>def <span class="ident">get_ship</span>(</p><p>self, ship_id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a singular ship mapped by the ship id
+:param ship_id: The ship id of the ship you wish to return
+:return: the ship object.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.get_ship', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.get_ship" class="source">
+    <pre><code>def get_ship(self, ship_id):
+    """
+    Returns a singular ship mapped by the ship id
+    :param ship_id: The ship id of the ship you wish to return
+    :return: the ship object.
+    """
+    return self._ships[ship_id]
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.get_ships">
+    <p>def <span class="ident">get_ships</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>:return: Returns all ship objects in a list</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.get_ships', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.get_ships" class="source">
+    <pre><code>def get_ships(self):
+    """
+    :return: Returns all ship objects in a list
+    """
+    return list(self._ships.values())
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="hlt.game_map.Player.has_ship">
+    <p>def <span class="ident">has_ship</span>(</p><p>self, ship_id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Check whether the player has a ship with a given ID.</p>
+<p>Useful if you track ships via IDs elsewhere and want to make
+sure the ship still exists.</p>
+<p>:param ship_id: The ID to check.
+:return: True if and only if the ship exists.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-hlt.game_map.Player.has_ship', this);">Show source &equiv;</a></p>
+  <div id="source-hlt.game_map.Player.has_ship" class="source">
+    <pre><code>def has_ship(self, ship_id):
+    """
+    Check whether the player has a ship with a given ID.
+    Useful if you track ships via IDs elsewhere and want to make
+    sure the ship still exists.
+    :param ship_id: The ID to check.
+    :return: True if and only if the ship exists.
+    """
+    return ship_id in self._ships
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="hlt.game_map.Player.halite_amount" class="name">var <span class="ident">halite_amount</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.Player.id" class="name">var <span class="ident">id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="hlt.game_map.Player.shipyard" class="name">var <span class="ident">shipyard</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>
